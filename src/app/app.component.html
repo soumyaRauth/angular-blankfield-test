@@ -9,6 +9,15 @@
         <li>List item five</li>
       </ol>
       <label>Your Name</label>
-      <input type="text" class="form-control" [(ngModel)]='userName'>
-      <button class="btn btn-primary" [disabled]="userName===''" (click)="userName=''">Reset field</button>
+      <input type="text" [(ngModel)]="userName" />
+
+      <p *ngIf="createServer; else noServer">Server Created</p>
+      <ng-template #noServer>
+          <p [ngStyle]="{color:'#0000ff'}">No Server Created</p>
+      </ng-template>
+      <p>Server status is <span [ngStyle]="{color:getColor()}">{{serverStatus}}</span></p>
+
+    
+    </div>
+  </div>
 </div>
