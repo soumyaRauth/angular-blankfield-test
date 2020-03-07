@@ -8,16 +8,17 @@
         <li>List item four</li>
         <li>List item five</li>
       </ol>
-      <label>Your Name</label>
-      <input type="text" [(ngModel)]="userName" />
 
-      <p *ngIf="createServer; else noServer">Server Created</p>
-      <ng-template #noServer>
-          <p [ngStyle]="{color:'#0000ff'}">No Server Created</p>
+      <span >{{serverStatus}}</span>
+      <span [ngStyle]="{backgroundColor:'green'}" [ngClass]="{online: serverStatus ==='Online'}">Color is Set</span>
+      <button class="btn btn-primary" (click)="setTheColor()" >{{setColorButtonText}}</button>
+      <p *ngIf="colorSet; else noColorSet">
+          <span [ngStyle]="{color:'green'}" [ngClass]="'online'">Color is Set</span>
+      </p>
+
+      <ng-template #noColorSet>
+          <p [ngStyle]="{color:'red'}">Color Not Set</p>
       </ng-template>
-      <p>Server status is <span [ngStyle]="{color:getColor()}">{{serverStatus}}</span></p>
-
-    
     </div>
   </div>
 </div>

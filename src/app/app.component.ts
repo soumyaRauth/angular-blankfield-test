@@ -7,7 +7,8 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
   userName: string = '';
-  createServer:boolean=false;
+  colorSet:boolean=false;
+  setColorButtonText:string='Set Color'
   serverStatus:string='Offline'
   constructor() {
   this.serverStatus=Math.random() > 0.5 ? 'Online':'Offline';
@@ -15,8 +16,14 @@ export class AppComponent {
 
 
 
-  createTheServer(){
-    this.createServer=true;
+  setTheColor(){
+    if(this.colorSet==false){
+      this.setColorButtonText='Unset Color'
+      this.colorSet=true;
+    }else{
+      this.colorSet=false;
+      this.setColorButtonText='Set Color'
+    }
   }
 
   getColor(){
