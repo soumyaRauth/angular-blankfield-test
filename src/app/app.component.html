@@ -1,24 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-8 mt-5">
-      <ol>
-        <li>List item one</li>
-        <li>List item two</li>
-        <li>List item three</li>
-        <li>List item four</li>
-        <li>List item five</li>
-      </ol>
-
-      <span >{{serverStatus}}</span>
-      <span [ngStyle]="{backgroundColor:'green'}" [ngClass]="{online: serverStatus ==='Online'}">Color is Set</span>
-      <button class="btn btn-primary" (click)="setTheColor()" >{{setColorButtonText}}</button>
-      <p *ngIf="colorSet; else noColorSet">
-          <span [ngStyle]="{color:'green'}" [ngClass]="'online'">Color is Set</span>
-      </p>
-
-      <ng-template #noColorSet>
-          <p [ngStyle]="{color:'red'}">Color Not Set</p>
-      </ng-template>
+ 
+        <button class="btn btn-primary" (click)="display=!display">Toggle Detail</button>
+        <h3 *ngIf="display">Secret Password is Tuna</h3>
+        <!-- <app-server *ngFor="let server of servers"></app-server> -->
     </div>
   </div>
 </div>
+

@@ -6,29 +6,21 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
-  userName: string = '';
-  colorSet:boolean=false;
-  setColorButtonText:string='Set Color'
-  serverStatus:string='Offline'
+
+servers:string[]=['server 1', 'server 2'];
+serverName:string='server 3'
+display:boolean=false;
   constructor() {
-  this.serverStatus=Math.random() > 0.5 ? 'Online':'Offline';
+  // this.serverStatus=Math.random() > 0.5 ? 'Online':'Offline';
   }
 
 
 
-  setTheColor(){
-    if(this.colorSet==false){
-      this.setColorButtonText='Unset Color'
-      this.colorSet=true;
-    }else{
-      this.colorSet=false;
-      this.setColorButtonText='Set Color'
-    }
-  }
-
-  getColor(){
-    return this.serverStatus==='Online'?'green':'red';
+  addServer(){
+    this.servers.push(this.serverName)
   }
   
-
+  removeServer(){
+    this.servers.pop();
+  }
 }
