@@ -7,20 +7,19 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
 
-servers:string[]=['server 1', 'server 2'];
-serverName:string='server 3'
+clickValue:Date[]=[];
 display:boolean=false;
   constructor() {
-  // this.serverStatus=Math.random() > 0.5 ? 'Online':'Offline';
+
   }
 
 
 
-  addServer(){
-    this.servers.push(this.serverName)
+  toggleAction(){
+    this.display=!this.display;
+    this.clickValue.push(new Date())
   }
-  
-  removeServer(){
-    this.servers.pop();
-  }
+
+
+
 }
